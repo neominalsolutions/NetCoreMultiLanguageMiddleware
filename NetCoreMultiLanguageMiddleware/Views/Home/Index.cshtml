@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*Inject View de bir servis çalıştıracağımız anlamına gelir.*@
+@inject IViewLocalizer localizer
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<p>
+  Hello Key: @ViewBag.Hello
+</p>
+
+
+<p>
+  Page Title : @localizer["PageTitle"]
+</p>
+
+
+@*asp-route-culture asp-route ile ya route param yada route querystring gönderebiliriz. *@
+
+<a asp-action="Index" asp-controller="Home" asp-route-culture="tr"> Türkçe</a>
+<a asp-action="Index" asp-controller="Home" asp-route-culture="en"> Ingilizce</a>
+<a asp-action="Index" asp-controller="Home" asp-route-culture="fr"> Fransızca</a>
